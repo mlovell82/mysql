@@ -1,0 +1,37 @@
+
+Candidate table
+
+Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| candidateId | varchar(15) | NO   | PRI |         |       |
+| userName    | varchar(15) | YES  | UNI | NULL    |       |
+
+Members table
+
+ Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| userName     | varchar(15) | NO   | PRI |         |       |
+| userPassword | varchar(15) | YES  |     | NULL    |       |
+| name         | varchar(25) | YES  |     | NULL    |       |
+| email        | varchar(25) | YES  |     | NULL    |       |
+| isAdmin      | tinyint(1)  | YES  |     | NULL    |       |
+
+Votes table
+
+ Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| voteNumber  | varchar(5)  | NO   | PRI |         |       |
+| userName    | varchar(15) | YES  | MUL | NULL    |       |
+| candidateId | varchar(15) | YES  | MUL | NULL    |       |
+
+stored functions
+
+ Db      | Name           | Type     | Definer           | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++---------+----------------+----------+-------------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| mlovell | addMember      | FUNCTION | mlovell@localhost | 2017-03-15 10:48:52 | 2017-03-15 10:48:52 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
+| mlovell | assignMember   | FUNCTION | mlovell@localhost | 2017-03-17 10:24:46 | 2017-03-17 10:24:46 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
+| mlovell | deleteMember   | FUNCTION | mlovell@localhost | 2017-03-17 09:54:25 | 2017-03-17 09:54:25 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
+| mlovell | deleteVote     | FUNCTION | mlovell@localhost | 2017-03-17 11:08:22 | 2017-03-17 11:08:22 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
+| mlovell | isMember       | FUNCTION | mlovell@localhost | 2017-03-15 09:37:41 | 2017-03-15 09:37:41 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
+| mlovell | unassignMember | FUNCTION | mlovell@localhost | 2017-03-17 10:34:18 | 2017-03-17 10:34:18 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
+| mlovell | vote           | FUNCTION | mlovell@localhost | 2017-03-17 10:54:10 | 2017-03-17 10:54:10 | DEFINER       |         | utf8                 | utf8_general_ci      | latin1_swedish_ci  |
